@@ -19,6 +19,9 @@ const images = [
         -->
 */
 
+//voglio che scorra dall'immagine 0 quindi 
+let activeindex = 1;
+
 //creo una const che richiamo il div che dovrà hostare le immagini
 const itemsel = document.querySelector('.items');
 
@@ -26,15 +29,12 @@ const itemsel = document.querySelector('.items');
 //const itemsel = document.querySelectorAll('.items')[1];
 //essendo quaryselectorall mi genera una html collection quindi dovrò specificare che voglio il primo elemento
 
-//voglio che scorra dall'immagine 0 quindi 
-let activeindex = 0;
 
 //creo una let che è una stringa vuota perche voglio che mi crei un div con src gli elementi del mio array e alt i ovvero images 01, 02, 03
 let tpl = '';
 
 //il carosello dovra scorrere no? quindi creo un ciclo
 for(let i = 0; i < images.length; i++){
-
     tpl += `
         <div class="item">
         <img src="${images[i]}" alt=" immagine ${i}">
@@ -65,20 +65,20 @@ nextbtn = addEventListener('click', function(){
     }
 
     //per far si che quando premo un pulsante l'immagine venga succeduta da quella dopo e non che quella dopo spwani sotto la prima e poi la seconda devo prima togliere il display block all'immagine
-    document.getElementsByClassName('item.active')classList.remove('active');
+    document.querySelector('.item.active').classList.remove('active');
     document.getElementsByClassName('item')[activeindex].classList.add('active');
     
 });
 
-prevbtn.addEventListener('click'; function() {
+prevbtn.addEventListener('click', function() {
 
-    if (activeindex === images.length) {
+    if (activeindex === 0) {
         activeindex = images.length -1;
     } else {
-        activeindex = 1;
+        activeindex -= 1;
     }
 
-    document.getElementsByClassName('item.active')classList.remove('active');
+    document.querySelector('.item.active').classList.remove('active');
     document.getElementsByClassName('item')[activeindex].classList.add('active');
 })
 
