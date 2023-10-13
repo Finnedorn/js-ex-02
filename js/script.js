@@ -54,7 +54,33 @@ document.getElementsByClassName('item')[activeindex].classList.add('active');
 const nextbtn = document.querySelector('.next');
 const prevbtn = document.querySelector('prev');
 
+//aggiungo ai bottoni le funzioni corrispondenti
 
+nextbtn = addEventListener('click', function(){
+    
+    if (activeindex === images.length - 1) {
+        activeindex = 0;
+    } else {
+        activeindex += 1;
+    }
+
+    //per far si che quando premo un pulsante l'immagine venga succeduta da quella dopo e non che quella dopo spwani sotto la prima e poi la seconda devo prima togliere il display block all'immagine
+    document.getElementsByClassName('item.active')classList.remove('active');
+    document.getElementsByClassName('item')[activeindex].classList.add('active');
+    
+});
+
+prevbtn.addEventListener('click'; function() {
+
+    if (activeindex === images.length) {
+        activeindex = images.length -1;
+    } else {
+        activeindex = 1;
+    }
+
+    document.getElementsByClassName('item.active')classList.remove('active');
+    document.getElementsByClassName('item')[activeindex].classList.add('active');
+})
 
 
 
